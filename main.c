@@ -13,7 +13,7 @@ int main()
 
    printf("\n\n           %d CALENDER      ",year);
 
-  if (year%4==0&&year%100!=0)
+  if (year%4==0&&year%100!=0||year%400==0)
    monthDay[1]=29;
 
    startingDays=firstday(year);
