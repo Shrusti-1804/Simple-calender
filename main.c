@@ -1,117 +1,53 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int days(int day,int month,int year)
-{
- int f[]={0,1,2,3,4,5,6,7}
- year -= month<3;
- t=(year+year/4-year/100+yerar/400+f[month-1]+day)%7;
- return t;
-}
-
-char month (int month)
-{
- char month
- switch (month)
- {
- case 1 :month"January"
-      break;
- case 2:month"Febuary"
-      break;
- case 3:month"March"
-      break;
- case 4:month"April"
-      break;
- case 5:month"May"
-      break;
- case 6:month"June"
-      break;
- case 7:month"July"
-      break;
- case 8:month"August"
-      break;
- case 9:month"September"
-      break;
- case 10:month"Octeber"
-      break;
- case 11:month"November"
-      break;
- case 12:month"December"
-      break;
-
- }
- return (month);
-
- int no days (int month,int year)
- {
- if (month ==1)
-  return(31);
- if (month==2)
-  {
-    if (year%400==0||year%4==0&&year%100!=0)
-    return (29);
-    else
-    return (28);
-  }
-   if (month ==3)
-  return(31);
-   if (month ==4)
-  return(30);
-   if (month ==5)
-  return(31);
-   if (month ==6)
-  return(30);
-   if (month ==7)
-  return(31);
-   if (month ==8)
-  return(31);
-   if (month ==9)
-  return(30);
-   if (month ==10)
-  return(31);
-   if (month ==11)
-  return(30);
-   if (month ==12)
-  return(31);
- }
-}
-
-int calender (int year)
-{
-int days,i ,j, l,temp;
-temp=days(1,1,year);
-for(i=1;i<=12;i++)
-{
-  days=days number(i,year);
-  printf("\n---------------%s---------------\n");
-  get(month(i));
-  printf("sun  Mon  Tue  Wed  Thu  Fri  Sat");
-  for(l=1;l<temp;l++)
-   {
-   printf("  ");
-   }
-for (j=1,j<=days;j++)
- {
-   printf("%d",j);
- if(++l>6)
- {
-   l=0;
-   printf("\n");
- }
-}
-if (l)
-{
- printf("\n");
- temp=l;
-}
-}
-return;
 
 int main()
 {
-  int year;
-  printf("Enter the year:")
+  char* months[]={"January","Febuary","March","April","May","June","July","August","September","Octeber","November","Decmber"};
+  int monthDay[]={31,28,31,30,31,30,31,31,30,31,30,31};
+  int year ,month,day,daysinmonth,weekDays=0,startingDays;
+  printf("Enter the year:");
   scanf("%d",&year);
-  print calender(year);
-  return 0;
+
+
+   printf("\n\n           %d CALENDER      ",year);
+
+  if (year%4==0&&year%100!=0)
+   monthDay[1]=29;
+
+   startingDays=firstday(year);
+
+
+  for(month=0;month<12;month++)
+  {
+    daysinmonth=monthDay[month];
+    printf("\n\n_______________%s_______________",months[month]);
+    printf("\n\n   Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");
+
+    for(weekDays=0;weekDays<startingDays;weekDays++)
+    {
+      printf("     ");
+    }
+
+    for(day=1;day<=daysinmonth;day++)
+    {
+      printf("%5d",day);
+
+      if(++weekDays>6)
+      {
+        printf("\n");
+        weekDays=0;
+      }
+      startingDays=weekDays;
+    }
+
+  }
+
+}
+int firstday(int year)
+{
+  int day;
+  day=(((year-1)*365)+((year-1)/4)-((year-1)/100)+((year)/400)+1)%7;
+  return day;
 }
