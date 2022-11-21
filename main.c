@@ -11,7 +11,7 @@ int main()
   scanf("%d",&year);
 
 
-   printf("\n\n           %d CALENDER      ",year);
+   printf("\n\n           %d CALENDER       ",year);
 
   if (year%4==0&&year%100!=0||year%400==0)
    month_Day[1]=29;
