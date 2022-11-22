@@ -5,7 +5,7 @@
 int main()
 {
   char* months[]={"January","Febuary","March","April","May","June","July","August","September","Octeber","November","December"};
-  int monthDay[]={31,28,31,30,31,30,31,31,30,31,30,31};
+  int month_day[]={31,28,31,30,31,30,31,31,30,31,30,31};
   int year ,month,day,days_in_month,week_days=0,starting_days;
   printf("Enter the year:");
   scanf("%d",&year);
@@ -14,7 +14,7 @@ int main()
    printf("\n\n           %d CALENDER       ",year);
 
   if (year%4==0&&year%100!=0||year%400==0)
-   month_Day[1]=29;
+   month_day[1]=29;
 
    starting_days=first_day(year);
 
