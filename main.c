@@ -6,7 +6,7 @@ int main()
 {
   char* months[]={"January","Febuary","March","April","May","June","July","August","September","Octeber","November","December"};
   int month_day[]={31,28,31,30,31,30,31,31,30,31,30,31};
-  int year ,month,day,days_in_month,week_days=0,starting_days;
+  int year ,month,day,days_in_month,week_day=0,starting_day;
   printf("Enter the year:");
   scanf("%d",&year);
 
@@ -16,7 +16,7 @@ int main()
   if (year%4==0&&year%100!=0||year%400==0)
    month_day[1]=29;
 
-   starting_days=first_day(year);
+   starting_day=first_day(year);
 
 
   for(month=0;month<12;month++)
@@ -25,7 +25,7 @@ int main()
     printf("\n\n_______________%s_______________",months[month]);
     printf("\n\n   Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");
 
-    for(week_days=0;week_days<starting_days;week_days++)
+    for(week_day=0;week_day<starting_day;week_day++)
     {
       printf("     ");
     }
@@ -34,12 +34,12 @@ int main()
     {
       printf("%5d",day);
 
-      if(++week_days>6)
+      if(++week_day>6)
       {
         printf("\n");
-        week_days=0;
+        week_day=0;
       }
-      starting_days=week_days;
+      starting_day=week_day;
     }
 
   }
