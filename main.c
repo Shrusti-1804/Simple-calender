@@ -4,7 +4,7 @@
 
 int main()
 {
-  char* months[]={"January","Febuary","March","April","May","June","July","August","September","Octeber","November","December"};
+  char* months[]={"January","February","March","April","May","June","July","August","September","Octeber","November","December"};
   int month_day[]={31,28,31,30,31,30,31,31,30,31,30,31};
   int year ,month,day,days_in_month,week_day=0,starting_day;
   printf("Enter the year:");
